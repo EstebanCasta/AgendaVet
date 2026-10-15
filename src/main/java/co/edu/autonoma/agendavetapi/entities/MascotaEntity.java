@@ -1,4 +1,4 @@
-package co.edu.autonoma.agendavetapi.domain;
+package co.edu.autonoma.   agendavetapi.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -10,7 +10,7 @@ public class MascotaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "responsable_id", nullable = false)
@@ -37,11 +37,11 @@ public class MascotaEntity {
     public MascotaEntity() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

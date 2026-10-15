@@ -1,4 +1,4 @@
-package co.edu.autonoma.agendavetapi.domain;
+package co.edu.autonoma.   agendavetapi.entities;
 
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
@@ -14,7 +14,7 @@ public class HistorialEstadoCitaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cita_id", nullable = false)
@@ -35,11 +35,11 @@ public class HistorialEstadoCitaEntity {
     public HistorialEstadoCitaEntity() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

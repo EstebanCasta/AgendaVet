@@ -2,7 +2,7 @@ package co.edu.autonoma.agendavetapi.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.edu.autonoma.agendavetapi.domain.HistorialEstadoCitaEntity;
+import co.edu.autonoma.   agendavetapi.entities.HistorialEstadoCitaEntity;
 
-public interface HistorialEstadoCitaRepository extends JpaRepository<HistorialEstadoCitaEntity, Long> {
+public interface HistorialEstadoCitaRepository extends JpaRepository<HistorialEstadoCitaEntity, Integer> {
 }

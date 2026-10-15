@@ -1,4 +1,4 @@
-package co.edu.autonoma.agendavetapi.domain;
+package co.edu.autonoma.   agendavetapi.entities;
 
 /** Estados permitidos de una cita (RN-04). */
 public enum EstadoCita {

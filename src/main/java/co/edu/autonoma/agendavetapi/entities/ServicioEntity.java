@@ -1,4 +1,4 @@
-package co.edu.autonoma.agendavetapi.domain;
+package co.edu.autonoma.   agendavetapi.entities;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ public class ServicioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "nombre", nullable = false, unique = true, length = 100)
     private String nombre;
@@ -26,11 +26,11 @@ public class ServicioEntity {
     public ServicioEntity() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

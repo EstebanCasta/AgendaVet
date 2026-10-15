@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.edu.autonoma.agendavetapi.domain.CitaEntity;
-import co.edu.autonoma.agendavetapi.domain.EstadoCita;
+import co.edu.autonoma.agendavetapi.entities.CitaEntity;
+import co.edu.autonoma.agendavetapi.entities.EstadoCita;
 
-public interface CitaRepository extends JpaRepository<CitaEntity, Long> {
+public interface CitaRepository extends JpaRepository<CitaEntity, Integer> {
 
     List<CitaEntity> findByEstado(EstadoCita estado);
 
