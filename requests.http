@@ -1,2 +1,36 @@
+﻿### Estado de la API
 GET http://localhost:8080/api/estado
 Accept: application/json
+
+### Crear servicio
+POST http://localhost:8080/api/servicios
+Content-Type: application/json
+
+{
+  "nombre": "Consulta general",
+  "descripcion": "Consulta veterinaria general",
+  "duracionMinutos": 30,
+  "activo": true
+}
+
+### Listar servicios
+GET http://localhost:8080/api/servicios
+Accept: application/json
+
+### Obtener servicio por id
+GET http://localhost:8080/api/servicios/1
+Accept: application/json
+
+### Reemplazar servicio
+PUT http://localhost:8080/api/servicios/1
+Content-Type: application/json
+
+{
+  "nombre": "Consulta general",
+  "descripcion": "Consulta veterinaria general actualizada",
+  "duracionMinutos": 45,
+  "activo": true
+}
+
+### Eliminar servicio
+DELETE http://localhost:8080/api/servicios/1
