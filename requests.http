@@ -1,2 +1,37 @@
 GET http://localhost:8080/api/estado
 Accept: application/json
+
+### Crear disponibilidad (requiere un profesional existente)
+POST http://localhost:8080/api/disponibilidades
+Content-Type: application/json
+
+{
+  "profesionalId": 1,
+  "fechaInicio": "2026-11-01T09:00:00-05:00",
+  "fechaFin": "2026-11-01T12:00:00-05:00"
+}
+
+### Listar disponibilidades
+GET http://localhost:8080/api/disponibilidades
+Accept: application/json
+
+### Filtrar disponibilidades por profesional y rango
+GET http://localhost:8080/api/disponibilidades?profesionalId=1&desde=2026-11-01T00:00:00-05:00&hasta=2026-11-02T00:00:00-05:00
+Accept: application/json
+
+### Obtener disponibilidad por id
+GET http://localhost:8080/api/disponibilidades/1
+Accept: application/json
+
+### Actualizar disponibilidad
+PUT http://localhost:8080/api/disponibilidades/1
+Content-Type: application/json
+
+{
+  "profesionalId": 1,
+  "fechaInicio": "2026-11-01T10:00:00-05:00",
+  "fechaFin": "2026-11-01T13:00:00-05:00"
+}
+
+### Eliminar disponibilidad
+DELETE http://localhost:8080/api/disponibilidades/1
