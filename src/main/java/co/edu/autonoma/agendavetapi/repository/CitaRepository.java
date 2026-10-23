@@ -16,11 +16,11 @@ public interface CitaRepository extends JpaRepository<CitaEntity, Integer> {
     long countByEstado(EstadoCita estado);
 
     @Query("select c from CitaEntity c "
-            + "where (:estado is null or c.estado = :estado) "
-            + "and (:mascotaId is null or c.mascota.id = :mascotaId) "
-            + "and (:profesionalId is null or c.profesional.id = :profesionalId) "
-            + "and (:desde is null or c.fechaFin >= :desde) "
-            + "and (:hasta is null or c.fechaInicio <= :hasta) order by c.fechaInicio")
+            + "where c.estado = coalesce(:estado, c.estado) "
+            + "and c.mascota.id = coalesce(:mascotaId, c.mascota.id) "
+            + "and c.profesional.id = coalesce(:profesionalId, c.profesional.id) "
+            + "and c.fechaFin >= coalesce(:desde, c.fechaFin) "
+            + "and c.fechaInicio <= coalesce(:hasta, c.fechaInicio) order by c.fechaInicio")
     List<CitaEntity> buscarConFiltros(@Param("estado") EstadoCita estado,
             @Param("mascotaId") Integer mascotaId, @Param("profesionalId") Integer profesionalId,
             @Param("desde") java.time.OffsetDateTime desde, @Param("hasta") java.time.OffsetDateTime hasta);
