@@ -34,6 +34,7 @@ public class CitaEntity {
     private OffsetDateTime fechaInicio;
 
     @Column(name = "fecha_fin", nullable = false)
+    @Generated(event = {EventType.INSERT, EventType.UPDATE})
     private OffsetDateTime fechaFin;
 
     @Column(name = "estado", nullable = false, length = 20)

@@ -1,2 +1,52 @@
 GET http://localhost:8080/api/estado
 Accept: application/json
+
+### Programar cita (los ids deben existir y estar relacionados)
+POST http://localhost:8080/api/citas
+Content-Type: application/json
+
+{
+  "mascotaId": 1,
+  "profesionalId": 1,
+  "servicioId": 1,
+  "disponibilidadId": 1,
+  "fechaInicio": "2026-11-01T09:00:00-05:00",
+  "notas": "Primera consulta"
+}
+
+### Listar citas
+GET http://localhost:8080/api/citas
+Accept: application/json
+
+### Filtrar citas por profesional y rango
+GET http://localhost:8080/api/citas?profesionalId=1&desde=2026-11-01T00:00:00-05:00&hasta=2026-11-02T00:00:00-05:00
+Accept: application/json
+
+### Obtener cita por id
+GET http://localhost:8080/api/citas/1
+Accept: application/json
+
+### Reprogramar cita (solo si sigue PROGRAMADA)
+PUT http://localhost:8080/api/citas/1
+Content-Type: application/json
+
+{
+  "mascotaId": 1,
+  "profesionalId": 1,
+  "servicioId": 1,
+  "disponibilidadId": 1,
+  "fechaInicio": "2026-11-01T10:00:00-05:00",
+  "notas": "Reprogramada"
+}
+
+### Marcar cita como atendida
+PATCH http://localhost:8080/api/citas/1/estado
+Content-Type: application/json
+
+{
+  "estado": "ATENDIDA"
+}
+
+### Consultar historial de estados
+GET http://localhost:8080/api/citas/1/historial-estados
+Accept: application/json
