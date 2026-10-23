@@ -11,9 +11,9 @@ import co.edu.autonoma.   agendavetapi.entities.DisponibilidadEntity;
 public interface DisponibilidadRepository extends JpaRepository<DisponibilidadEntity, Integer> {
 
     @Query("select d from DisponibilidadEntity d "
-            + "where (:profesionalId is null or d.profesional.id = :profesionalId) "
-            + "and (:desde is null or d.fechaFin >= :desde) "
-            + "and (:hasta is null or d.fechaInicio <= :hasta) order by d.fechaInicio")
+            + "where d.profesional.id = coalesce(:profesionalId, d.profesional.id) "
+            + "and d.fechaFin >= coalesce(:desde, d.fechaFin) "
+            + "and d.fechaInicio <= coalesce(:hasta, d.fechaInicio) order by d.fechaInicio")
     List<DisponibilidadEntity> buscarConFiltros(@Param("profesionalId") Integer profesionalId,
             @Param("desde") OffsetDateTime desde, @Param("hasta") OffsetDateTime hasta);
 
