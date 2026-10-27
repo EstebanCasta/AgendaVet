@@ -1,4 +1,4 @@
-package co.edu.autonoma.   agendavetapi.entities;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
 
