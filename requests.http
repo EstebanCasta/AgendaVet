@@ -71,3 +71,44 @@ Content-Type: application/json
 
 ### Eliminar responsable
 DELETE http://localhost:8080/api/responsables/1
+
+### Crear profesional (serviciosIds requiere ids de servicios existentes)
+POST http://localhost:8080/api/profesionales
+Content-Type: application/json
+
+{
+  "nombre": "Laura",
+  "apellido": "Gómez",
+  "especialidad": "Medicina veterinaria",
+  "correo": "laura.gomez@example.com",
+  "activo": true,
+  "serviciosIds": [1]
+}
+
+### Listar profesionales
+GET http://localhost:8080/api/profesionales
+Accept: application/json
+
+### Listar profesionales activos
+GET http://localhost:8080/api/profesionales?activo=true
+Accept: application/json
+
+### Obtener profesional por id
+GET http://localhost:8080/api/profesionales/1
+Accept: application/json
+
+### Actualizar profesional y sus servicios
+PUT http://localhost:8080/api/profesionales/1
+Content-Type: application/json
+
+{
+  "nombre": "Laura",
+  "apellido": "Gómez",
+  "especialidad": "Medicina veterinaria",
+  "correo": "laura.gomez@example.com",
+  "activo": true,
+  "serviciosIds": [1]
+}
+
+### Eliminar profesional
+DELETE http://localhost:8080/api/profesionales/1
