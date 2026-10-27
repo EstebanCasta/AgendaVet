@@ -112,3 +112,46 @@ Content-Type: application/json
 
 ### Eliminar profesional
 DELETE http://localhost:8080/api/profesionales/1
+
+### Crear mascota (requiere un responsable existente)
+POST http://localhost:8080/api/mascotas
+Content-Type: application/json
+
+{
+  "responsableId": 1,
+  "nombre": "Luna",
+  "especie": "Canina",
+  "raza": "Criolla",
+  "sexo": "Hembra",
+  "fechaNacimiento": "2022-03-15",
+  "activa": true
+}
+
+### Listar mascotas
+GET http://localhost:8080/api/mascotas
+Accept: application/json
+
+### Listar mascotas de un responsable
+GET http://localhost:8080/api/mascotas?responsableId=1
+Accept: application/json
+
+### Obtener mascota por id
+GET http://localhost:8080/api/mascotas/1
+Accept: application/json
+
+### Reemplazar mascota
+PUT http://localhost:8080/api/mascotas/1
+Content-Type: application/json
+
+{
+  "responsableId": 1,
+  "nombre": "Luna",
+  "especie": "Canina",
+  "raza": "Criolla",
+  "sexo": "Hembra",
+  "fechaNacimiento": "2022-03-15",
+  "activa": true
+}
+
+### Eliminar mascota
+DELETE http://localhost:8080/api/mascotas/1
