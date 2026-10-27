@@ -34,3 +34,40 @@ Content-Type: application/json
 
 ### Eliminar servicio
 DELETE http://localhost:8080/api/servicios/1
+
+### Crear responsable
+POST http://localhost:8080/api/responsables
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "Pérez",
+  "tipoDocumento": "CC",
+  "numeroDocumento": "1234567890",
+  "telefono": "3001234567",
+  "correo": "ana@example.com"
+}
+
+### Listar responsables
+GET http://localhost:8080/api/responsables
+Accept: application/json
+
+### Obtener responsable por id
+GET http://localhost:8080/api/responsables/1
+Accept: application/json
+
+### Reemplazar responsable
+PUT http://localhost:8080/api/responsables/1
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido": "Pérez Gómez",
+  "tipoDocumento": "CC",
+  "numeroDocumento": "1234567890",
+  "telefono": "3001234567",
+  "correo": "ana@example.com"
+}
+
+### Eliminar responsable
+DELETE http://localhost:8080/api/responsables/1
