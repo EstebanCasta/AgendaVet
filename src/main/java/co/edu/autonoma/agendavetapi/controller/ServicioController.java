@@ -5,15 +5,16 @@ import java.util.List;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.ServicioRequest;
 import co.edu.autonoma.agendavetapi.dto.ServicioResponse;
 import co.edu.autonoma.agendavetapi.service.ServicioService;
 
 @RestController
 @RequestMapping("/api/servicios")
+@RequiredArgsConstructor
 public class ServicioController {
     private final ServicioService servicioService;
-    public ServicioController(ServicioService servicioService) { this.servicioService = servicioService; }
 
     @PostMapping
     public ResponseEntity<ServicioResponse> crear(@Valid @RequestBody ServicioRequest solicitud) {

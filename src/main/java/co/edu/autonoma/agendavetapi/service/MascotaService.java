@@ -3,6 +3,7 @@ package co.edu.autonoma.agendavetapi.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.MascotaRequest;
 import co.edu.autonoma.agendavetapi.dto.MascotaResponse;
 import co.edu.autonoma.agendavetapi.entities.MascotaEntity;
@@ -13,14 +14,10 @@ import co.edu.autonoma.agendavetapi.repository.ResponsableRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class MascotaService {
     private final MascotaRepository mascotaRepository;
     private final ResponsableRepository responsableRepository;
-
-    public MascotaService(MascotaRepository mascotaRepository, ResponsableRepository responsableRepository) {
-        this.mascotaRepository = mascotaRepository;
-        this.responsableRepository = responsableRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<MascotaResponse> listar(Integer responsableId) {

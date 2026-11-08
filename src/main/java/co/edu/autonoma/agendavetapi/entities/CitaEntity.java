@@ -1,6 +1,9 @@
 package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 import org.hibernate.annotations.Generated;
 import org.hibernate.generator.EventType;
@@ -8,6 +11,9 @@ import org.hibernate.generator.EventType;
 /** Cita. fecha_fin la recalcula el trigger de la BD a partir del servicio (RN-02). */
 @Entity
 @Table(name = "cita")
+@Getter
+@Setter
+@NoArgsConstructor
 public class CitaEntity {
 
     @Id
@@ -51,94 +57,4 @@ public class CitaEntity {
     @Generated(event = {EventType.INSERT, EventType.UPDATE})
     private OffsetDateTime fechaActualizacion;
 
-    public CitaEntity() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public MascotaEntity getMascota() {
-        return mascota;
-    }
-
-    public void setMascota(MascotaEntity mascota) {
-        this.mascota = mascota;
-    }
-
-    public ProfesionalEntity getProfesional() {
-        return profesional;
-    }
-
-    public void setProfesional(ProfesionalEntity profesional) {
-        this.profesional = profesional;
-    }
-
-    public ServicioEntity getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioEntity servicio) {
-        this.servicio = servicio;
-    }
-
-    public DisponibilidadEntity getDisponibilidad() {
-        return disponibilidad;
-    }
-
-    public void setDisponibilidad(DisponibilidadEntity disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    public OffsetDateTime getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(OffsetDateTime fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public OffsetDateTime getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(OffsetDateTime fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    public EstadoCita getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoCita estado) {
-        this.estado = estado;
-    }
-
-    public String getNotas() {
-        return notas;
-    }
-
-    public void setNotas(String notas) {
-        this.notas = notas;
-    }
-
-    public OffsetDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(OffsetDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public OffsetDateTime getFechaActualizacion() {
-        return fechaActualizacion;
-    }
-
-    public void setFechaActualizacion(OffsetDateTime fechaActualizacion) {
-        this.fechaActualizacion = fechaActualizacion;
-    }
 }

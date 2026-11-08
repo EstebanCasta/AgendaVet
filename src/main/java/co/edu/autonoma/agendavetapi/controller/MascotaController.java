@@ -5,15 +5,16 @@ import java.util.List;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.MascotaRequest;
 import co.edu.autonoma.agendavetapi.dto.MascotaResponse;
 import co.edu.autonoma.agendavetapi.service.MascotaService;
 
 @RestController
 @RequestMapping("/api/mascotas")
+@RequiredArgsConstructor
 public class MascotaController {
     private final MascotaService mascotaService;
-    public MascotaController(MascotaService mascotaService) { this.mascotaService = mascotaService; }
 
     @PostMapping
     public ResponseEntity<MascotaResponse> crear(@Valid @RequestBody MascotaRequest solicitud) {
