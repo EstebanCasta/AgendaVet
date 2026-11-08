@@ -1,5 +1,8 @@
 package co.edu.autonoma.   agendavetapi.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,6 +10,9 @@ import java.util.Set;
 /** Profesional. La relación N:M con Servicio se mapea sobre la tabla profesional_servicio. */
 @Entity
 @Table(name = "profesional")
+@Getter
+@Setter
+@NoArgsConstructor
 public class ProfesionalEntity {
 
     @Id
@@ -34,62 +40,31 @@ public class ProfesionalEntity {
             inverseJoinColumns = @JoinColumn(name = "servicio_id"))
     private Set<ServicioEntity> servicios = new HashSet<>();
 
-    public ProfesionalEntity() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
+public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
+public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
+public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
+public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
+public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
-    public Set<ServicioEntity> getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(Set<ServicioEntity> servicios) {
+public void setServicios(Set<ServicioEntity> servicios) {
         this.servicios = servicios;
     }
 }

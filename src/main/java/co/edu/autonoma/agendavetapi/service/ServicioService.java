@@ -1,5 +1,6 @@
 package co.edu.autonoma.agendavetapi.service;
 
+import lombok.RequiredArgsConstructor;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +13,9 @@ import co.edu.autonoma.agendavetapi.repository.ServicioRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ServicioService {
     private final ServicioRepository servicioRepository;
-    public ServicioService(ServicioRepository servicioRepository) { this.servicioRepository = servicioRepository; }
-
     @Transactional(readOnly = true)
     public List<ServicioResponse> listar() {
         return servicioRepository.findAll().stream().map(ServicioResponse::desde).toList();
