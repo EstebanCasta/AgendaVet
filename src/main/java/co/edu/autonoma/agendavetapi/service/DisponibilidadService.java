@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.service;
 
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -15,15 +17,10 @@ import co.edu.autonoma.agendavetapi.repository.ProfesionalRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class DisponibilidadService {
     private final DisponibilidadRepository disponibilidadRepository;
     private final ProfesionalRepository profesionalRepository;
-
-    public DisponibilidadService(DisponibilidadRepository disponibilidadRepository,
-            ProfesionalRepository profesionalRepository) {
-        this.disponibilidadRepository = disponibilidadRepository;
-        this.profesionalRepository = profesionalRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<DisponibilidadResponse> listar(Integer profesionalId, OffsetDateTime desde, OffsetDateTime hasta) {

@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -12,11 +14,9 @@ import co.edu.autonoma.agendavetapi.service.DisponibilidadService;
 
 @RestController
 @RequestMapping("/api/disponibilidades")
+@RequiredArgsConstructor
 public class DisponibilidadController {
     private final DisponibilidadService disponibilidadService;
-    public DisponibilidadController(DisponibilidadService disponibilidadService) {
-        this.disponibilidadService = disponibilidadService;
-    }
 
     @PostMapping
     public ResponseEntity<DisponibilidadResponse> crear(@Valid @RequestBody DisponibilidadRequest solicitud) {
