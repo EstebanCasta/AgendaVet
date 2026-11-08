@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.service;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,9 +14,9 @@ import co.edu.autonoma.agendavetapi.repository.ResponsableRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ResponsableService {
     private final ResponsableRepository responsableRepository;
-    public ResponsableService(ResponsableRepository responsableRepository) { this.responsableRepository = responsableRepository; }
 
     @Transactional(readOnly = true)
     public List<ResponsableResponse> listar() {
