@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import java.net.URI;
 import java.util.List;
 import jakarta.validation.Valid;
@@ -11,9 +13,9 @@ import co.edu.autonoma.agendavetapi.service.ServicioService;
 
 @RestController
 @RequestMapping("/api/servicios")
+@RequiredArgsConstructor
 public class ServicioController {
     private final ServicioService servicioService;
-    public ServicioController(ServicioService servicioService) { this.servicioService = servicioService; }
 
     @PostMapping
     public ResponseEntity<ServicioResponse> crear(@Valid @RequestBody ServicioRequest solicitud) {

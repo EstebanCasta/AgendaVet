@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import java.net.URI;
 import java.util.List;
 import jakarta.validation.Valid;
@@ -11,9 +13,9 @@ import co.edu.autonoma.agendavetapi.service.ProfesionalService;
 
 @RestController
 @RequestMapping("/api/profesionales")
+@RequiredArgsConstructor
 public class ProfesionalController {
     private final ProfesionalService profesionalService;
-    public ProfesionalController(ProfesionalService profesionalService) { this.profesionalService = profesionalService; }
 
     @PostMapping
     public ResponseEntity<ProfesionalResponse> crear(@Valid @RequestBody ProfesionalRequest solicitud) {

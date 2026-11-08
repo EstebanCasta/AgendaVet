@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.service;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,14 +18,10 @@ import co.edu.autonoma.agendavetapi.repository.ServicioRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ProfesionalService {
     private final ProfesionalRepository profesionalRepository;
     private final ServicioRepository servicioRepository;
-
-    public ProfesionalService(ProfesionalRepository profesionalRepository, ServicioRepository servicioRepository) {
-        this.profesionalRepository = profesionalRepository;
-        this.servicioRepository = servicioRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ProfesionalResponse> listar(Boolean activo) {
