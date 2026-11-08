@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.controller;
 
+import lombok.RequiredArgsConstructor;
+
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -15,9 +17,10 @@ import co.edu.autonoma.agendavetapi.service.CitaService;
 
 @RestController
 @RequestMapping("/api/citas")
-public class CitaController {
+@RequiredArgsConstructor
+public class CitaController
+{
     private final CitaService citaService;
-    public CitaController(CitaService citaService) { this.citaService = citaService; }
 
     @PostMapping
     public ResponseEntity<CitaResponse> crear(@Valid @RequestBody CitaRequest solicitud) {

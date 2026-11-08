@@ -1,5 +1,7 @@
 package co.edu.autonoma.agendavetapi.service;
 
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -26,25 +28,15 @@ import co.edu.autonoma.agendavetapi.repository.ServicioRepository;
 
 @Service
 @Transactional
-public class CitaService {
+@RequiredArgsConstructor
+public class CitaService
+{
     private final CitaRepository citaRepository;
     private final MascotaRepository mascotaRepository;
     private final ProfesionalRepository profesionalRepository;
     private final ServicioRepository servicioRepository;
     private final DisponibilidadRepository disponibilidadRepository;
     private final HistorialEstadoCitaRepository historialRepository;
-
-    public CitaService(CitaRepository citaRepository, MascotaRepository mascotaRepository,
-            ProfesionalRepository profesionalRepository, ServicioRepository servicioRepository,
-            DisponibilidadRepository disponibilidadRepository,
-            HistorialEstadoCitaRepository historialRepository) {
-        this.citaRepository = citaRepository;
-        this.mascotaRepository = mascotaRepository;
-        this.profesionalRepository = profesionalRepository;
-        this.servicioRepository = servicioRepository;
-        this.disponibilidadRepository = disponibilidadRepository;
-        this.historialRepository = historialRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<CitaResponse> listar(EstadoCita estado, Integer mascotaId, Integer profesionalId,
