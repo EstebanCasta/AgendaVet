@@ -1,12 +1,9 @@
-package co.edu.autonoma.   agendavetapi.entities;
-
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,4 +39,5 @@ public class ProfesionalEntity {
             joinColumns = @JoinColumn(name = "profesional_id"),
             inverseJoinColumns = @JoinColumn(name = "servicio_id"))
     private Set<ServicioEntity> servicios = new HashSet<>();
+
 }

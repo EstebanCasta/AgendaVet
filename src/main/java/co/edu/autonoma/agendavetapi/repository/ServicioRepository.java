@@ -7,4 +7,6 @@ import co.edu.autonoma.agendavetapi.entities.ServicioEntity;
 public interface ServicioRepository extends JpaRepository<ServicioEntity, Integer> {
 
     boolean existsByNombre(String nombre);
+
+    boolean existsByNombreAndIdNot(String nombre, Integer id);
 }

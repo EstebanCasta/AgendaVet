@@ -1,12 +1,9 @@
 package co.edu.autonoma.agendavetapi.entities;
 
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
-
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 import org.hibernate.annotations.Generated;
 import org.hibernate.generator.EventType;
@@ -59,4 +56,5 @@ public class CitaEntity {
     @Column(name = "fecha_actualizacion", nullable = false)
     @Generated(event = {EventType.INSERT, EventType.UPDATE})
     private OffsetDateTime fechaActualizacion;
+
 }

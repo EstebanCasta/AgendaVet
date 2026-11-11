@@ -1,12 +1,9 @@
-package co.edu.autonoma.   agendavetapi.entities;
-
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 
 /** Bloque de atención del profesional (RN-03). */
@@ -30,4 +27,5 @@ public class DisponibilidadEntity {
 
     @Column(name = "fecha_fin", nullable = false)
     private OffsetDateTime fechaFin;
+
 }

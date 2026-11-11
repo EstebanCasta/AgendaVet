@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import co.edu.autonoma.   agendavetapi.entities.DisponibilidadEntity;
+import co.edu.autonoma.agendavetapi.entities.DisponibilidadEntity;
 
 public interface DisponibilidadRepository extends JpaRepository<DisponibilidadEntity, Integer> {
 

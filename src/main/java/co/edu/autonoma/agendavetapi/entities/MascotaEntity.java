@@ -1,12 +1,9 @@
-package co.edu.autonoma.   agendavetapi.entities;
-
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.LocalDate;
 
 /** Mascota. Sin datos clínicos (RN-06). */
@@ -42,4 +39,5 @@ public class MascotaEntity {
 
     @Column(name = "activa", nullable = false)
     private boolean activa = true;
+
 }
