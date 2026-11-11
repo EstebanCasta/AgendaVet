@@ -5,15 +5,16 @@ import java.util.List;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.ResponsableRequest;
 import co.edu.autonoma.agendavetapi.dto.ResponsableResponse;
 import co.edu.autonoma.agendavetapi.service.ResponsableService;
 
 @RestController
 @RequestMapping("/api/responsables")
+@RequiredArgsConstructor
 public class ResponsableController {
     private final ResponsableService responsableService;
-    public ResponsableController(ResponsableService responsableService) { this.responsableService = responsableService; }
 
     @PostMapping
     public ResponseEntity<ResponsableResponse> crear(@Valid @RequestBody ResponsableRequest solicitud) {

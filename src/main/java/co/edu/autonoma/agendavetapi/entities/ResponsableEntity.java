@@ -1,6 +1,9 @@
 package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 import org.hibernate.annotations.Generated;
 import org.hibernate.generator.EventType;
@@ -8,6 +11,9 @@ import org.hibernate.generator.EventType;
 /** Dueño de la mascota. Solo datos de contacto (RN-06). */
 @Entity
 @Table(name = "responsable", uniqueConstraints = @UniqueConstraint(columnNames = {"tipo_documento", "numero_documento"}))
+@Getter
+@Setter
+@NoArgsConstructor
 public class ResponsableEntity {
 
     @Id
@@ -36,70 +42,4 @@ public class ResponsableEntity {
     @Generated(event = EventType.INSERT)
     private OffsetDateTime fechaRegistro;
 
-    public ResponsableEntity() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public OffsetDateTime getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void setFechaRegistro(OffsetDateTime fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
 }

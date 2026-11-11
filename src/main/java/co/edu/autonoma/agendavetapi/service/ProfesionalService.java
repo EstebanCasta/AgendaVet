@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.ProfesionalRequest;
 import co.edu.autonoma.agendavetapi.dto.ProfesionalResponse;
 import co.edu.autonoma.agendavetapi.entities.ProfesionalEntity;
@@ -16,14 +17,10 @@ import co.edu.autonoma.agendavetapi.repository.ServicioRepository;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ProfesionalService {
     private final ProfesionalRepository profesionalRepository;
     private final ServicioRepository servicioRepository;
-
-    public ProfesionalService(ProfesionalRepository profesionalRepository, ServicioRepository servicioRepository) {
-        this.profesionalRepository = profesionalRepository;
-        this.servicioRepository = servicioRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ProfesionalResponse> listar(Boolean activo) {

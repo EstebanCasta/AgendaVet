@@ -5,15 +5,16 @@ import java.util.List;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 import co.edu.autonoma.agendavetapi.dto.ProfesionalRequest;
 import co.edu.autonoma.agendavetapi.dto.ProfesionalResponse;
 import co.edu.autonoma.agendavetapi.service.ProfesionalService;
 
 @RestController
 @RequestMapping("/api/profesionales")
+@RequiredArgsConstructor
 public class ProfesionalController {
     private final ProfesionalService profesionalService;
-    public ProfesionalController(ProfesionalService profesionalService) { this.profesionalService = profesionalService; }
 
     @PostMapping
     public ResponseEntity<ProfesionalResponse> crear(@Valid @RequestBody ProfesionalRequest solicitud) {
