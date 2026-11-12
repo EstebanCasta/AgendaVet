@@ -9,12 +9,16 @@ import org.springframework.data.repository.query.Param;
 import co.edu.autonoma.agendavetapi.entities.CitaEntity;
 import co.edu.autonoma.agendavetapi.entities.EstadoCita;
 
+/** Consultas de persistencia para citas y detección de cruces de horario. */
 public interface CitaRepository extends JpaRepository<CitaEntity, Integer> {
 
+    /** Lista citas por estado; Spring Data construye la consulta a partir del nombre. */
     List<CitaEntity> findByEstado(EstadoCita estado);
 
+    /** Cuenta citas en un estado, utilizado por consultas de resumen. */
     long countByEstado(EstadoCita estado);
 
+    /** Busca citas ordenadas por inicio aplicando solo los filtros recibidos. */
     @Query("select c from CitaEntity c "
             + "where c.estado = coalesce(:estado, c.estado) "
             + "and c.mascota.id = coalesce(:mascotaId, c.mascota.id) "
@@ -25,6 +29,7 @@ public interface CitaRepository extends JpaRepository<CitaEntity, Integer> {
             @Param("mascotaId") Integer mascotaId, @Param("profesionalId") Integer profesionalId,
             @Param("desde") java.time.OffsetDateTime desde, @Param("hasta") java.time.OffsetDateTime hasta);
 
+    /** Detecta solapamiento para el mismo profesional o la misma mascota. */
     @Query("select case when count(c) > 0 then true else false end from CitaEntity c "
             + "where c.estado = :estado and (c.profesional.id = :profesionalId or c.mascota.id = :mascotaId) "
             + "and c.fechaInicio < :fechaFin and c.fechaFin > :fechaInicio "
