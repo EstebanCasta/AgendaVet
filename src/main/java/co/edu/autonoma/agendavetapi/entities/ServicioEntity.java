@@ -1,12 +1,9 @@
-package co.edu.autonoma.   agendavetapi.entities;
-
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /** Servicio publicado. La duración define la duración de la cita (RN-02). */
 @Entity
@@ -31,4 +28,5 @@ public class ServicioEntity {
 
     @Column(name = "activo", nullable = false)
     private boolean activo = true;
+
 }

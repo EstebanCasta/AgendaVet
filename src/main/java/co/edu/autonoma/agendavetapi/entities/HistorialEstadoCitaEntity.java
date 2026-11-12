@@ -1,12 +1,9 @@
-package co.edu.autonoma.   agendavetapi.entities;
-
-import lombok.NoArgsConstructor;
-
-import lombok.Setter;
-
-import lombok.Getter;
+package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.OffsetDateTime;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.Immutable;
@@ -40,4 +37,5 @@ public class HistorialEstadoCitaEntity {
     @Column(name = "fecha_cambio", nullable = false)
     @Generated(event = EventType.INSERT)
     private OffsetDateTime fechaCambio;
+
 }
