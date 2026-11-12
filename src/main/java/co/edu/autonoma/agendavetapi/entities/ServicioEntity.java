@@ -2,9 +2,16 @@ package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /** Servicio publicado. La duración define la duración de la cita (RN-02). */
 @Entity
 @Table(name = "servicio")
+@Getter
+@Setter
+@NoArgsConstructor
 public class ServicioEntity {
 
     /** Identificador del servicio. */
@@ -28,47 +35,5 @@ public class ServicioEntity {
     @Column(name = "activo", nullable = false)
     private boolean activo = true;
 
-
-    public ServicioEntity() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Integer getDuracionMinutos() {
-        return duracionMinutos;
-    }
-
-    public void setDuracionMinutos(Integer duracionMinutos) {
-        this.duracionMinutos = duracionMinutos;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
+
 }
