@@ -1,7 +1,5 @@
 package co.edu.autonoma.agendavetapi.controller;
 
-import lombok.RequiredArgsConstructor;
-
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -15,18 +13,24 @@ import co.edu.autonoma.agendavetapi.dto.HistorialEstadoCitaResponse;
 import co.edu.autonoma.agendavetapi.entities.EstadoCita;
 import co.edu.autonoma.agendavetapi.service.CitaService;
 
+/** Recibe las solicitudes HTTP relacionadas con la agenda de citas. */
 @RestController
 @RequestMapping("/api/citas")
-@RequiredArgsConstructor
-public class CitaController
-{
+public class CitaController {
     private final CitaService citaService;
 
+    public CitaController(CitaService citaService) {
+        this.citaService = citaService;
+    }
+
+    /** Crea una cita y responde con la ruta del recurso creado. */
     @PostMapping
     public ResponseEntity<CitaResponse> crear(@Valid @RequestBody CitaRequest solicitud) {
         CitaResponse respuesta = citaService.crear(solicitud);
-        return ResponseEntity.created(URI.create("/api/citas/" + respuesta.id())).body(respuesta);
+        return ResponseEntity.created(URI.create("/api/citas/" + respuesta.getId())).body(respuesta);
     }
+
+    /** Lista citas y aplica los filtros que el cliente haya enviado. */
     @GetMapping
     public List<CitaResponse> listar(@RequestParam(required = false) EstadoCita estado,
             @RequestParam(required = false) Integer mascotaId,
@@ -35,17 +39,23 @@ public class CitaController
             @RequestParam(required = false) OffsetDateTime hasta) {
         return citaService.listar(estado, mascotaId, profesionalId, desde, hasta);
     }
+    /** Busca una cita por su identificador. */
     @GetMapping("/{id}")
-    public CitaResponse obtener(@PathVariable Integer id) { return citaService.obtener(id); }
+    public CitaResponse obtener(@PathVariable Integer id) {
+        return citaService.obtener(id);
+    }
+    /** Reemplaza los datos de una cita que todavía está programada. */
     @PutMapping("/{id}")
     public CitaResponse reprogramar(@PathVariable Integer id, @Valid @RequestBody CitaRequest solicitud) {
         return citaService.reprogramar(id, solicitud);
     }
+    /** Solicita una transición de estado, que el servicio valida. */
     @PatchMapping("/{id}/estado")
     public CitaResponse cambiarEstado(@PathVariable Integer id,
             @Valid @RequestBody CambioEstadoCitaRequest solicitud) {
         return citaService.cambiarEstado(id, solicitud);
     }
+    /** Consulta los cambios de estado guardados para una cita. */
     @GetMapping("/{id}/historial-estados")
     public List<HistorialEstadoCitaResponse> historial(@PathVariable Integer id) {
         return citaService.listarHistorial(id);
