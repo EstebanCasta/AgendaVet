@@ -1,11 +1,11 @@
 package co.edu.autonoma.agendavetapi.entities;
 
 import jakarta.persistence.*;
+import java.time.OffsetDateTime;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.time.OffsetDateTime;
 
 /** Guarda la información de una cita. */
 @Entity
@@ -65,5 +65,4 @@ public class CitaEntity {
     @Column(name = "fecha_actualizacion", nullable = false)
     private OffsetDateTime fechaActualizacion;
 
-
 }
