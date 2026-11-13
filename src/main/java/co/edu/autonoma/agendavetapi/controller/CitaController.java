@@ -39,22 +39,26 @@ public class CitaController {
             @RequestParam(required = false) OffsetDateTime hasta) {
         return citaService.listar(estado, mascotaId, profesionalId, desde, hasta);
     }
+
     /** Busca una cita por su identificador. */
     @GetMapping("/{id}")
     public CitaResponse obtener(@PathVariable Integer id) {
         return citaService.obtener(id);
     }
+
     /** Reemplaza los datos de una cita que todavía está programada. */
     @PutMapping("/{id}")
     public CitaResponse reprogramar(@PathVariable Integer id, @Valid @RequestBody CitaRequest solicitud) {
         return citaService.reprogramar(id, solicitud);
     }
+
     /** Solicita una transición de estado, que el servicio valida. */
     @PatchMapping("/{id}/estado")
     public CitaResponse cambiarEstado(@PathVariable Integer id,
             @Valid @RequestBody CambioEstadoCitaRequest solicitud) {
         return citaService.cambiarEstado(id, solicitud);
     }
+
     /** Consulta los cambios de estado guardados para una cita. */
     @GetMapping("/{id}/historial-estados")
     public List<HistorialEstadoCitaResponse> historial(@PathVariable Integer id) {
